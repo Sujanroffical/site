@@ -1,20 +1,116 @@
 import React from 'react';
-const cells = [
-  { icon: '📈', title: 'SEO Optimized', desc: 'Ready to be found on Google.' },
-  { icon: '📊', title: 'Analytics Ready', desc: 'Track user statistics, marketing cookies and more.', big: '100', bigLabel: 'PageSpeed' },
-  { icon: '📱', title: 'Fully Responsive', desc: 'Optimized for desktop, tablet, mobile and everything in between.' },
-  { icon: '🎯', title: 'ROI-First', desc: 'So you get the most out of your ad budget.', span: true },
-  { icon: '⚡', title: 'Lightning Fast', desc: 'Because nobody likes waiting.' },
-];
-const tags = ['Web Design', 'Next.js', 'React', 'SEO', 'Tailwind', 'Performance', 'UI/UX', 'Responsive'];
+
+const ChartSVG = () => (
+  <svg viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', marginTop: 'auto' }}>
+    <defs>
+      <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="150" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#10b981" stopOpacity="0.2" />
+        <stop offset="1" stopColor="#10b981" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+    <path d="M0,150 L0,120 L40,110 L80,115 L120,70 L160,85 L200,50 L240,65 L280,45 L320,60 L360,35 L400,20 L400,150 Z" fill="url(#chartGradient)"/>
+    <path d="M0,120 L40,110 L80,115 L120,70 L160,85 L200,50 L240,65 L280,45 L320,60 L360,35 L400,20" stroke="#10b981" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="120" cy="70" r="5" fill="#10b981" />
+  </svg>
+);
+
+const PillsGroup = () => (
+  <div style={{ position: 'relative', height: '100px', width: '150px', marginLeft: 'auto', transform: 'rotate(-5deg)' }}>
+    <div style={{ position: 'absolute', top: '10px', left: '0px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Copy</div>
+    <div style={{ position: 'absolute', top: '5px', left: '50px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Development</div>
+    <div style={{ position: 'absolute', top: '35px', left: '10px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Google</div>
+    <div style={{ position: 'absolute', top: '35px', left: '70px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Support</div>
+    <div style={{ position: 'absolute', top: '65px', left: '20px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Hosting</div>
+    <div style={{ position: 'absolute', top: '65px', left: '80px', background: '#171717', color: 'white', padding: '4px 12px', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 600 }}>Strategy</div>
+  </div>
+);
+
+const PageSpeed = () => (
+  <div style={{ position: 'relative', width: '90px', height: '90px', borderRadius: '50%', border: '4px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', fontSize: '1.8rem', fontWeight: 700, marginLeft: 'auto' }}>
+    100
+    <div style={{ position: 'absolute', top: '-10px', right: '-15px', background: 'transparent', border: '1px solid #ccc', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.55rem', color: '#555' }}>97</div>
+    <div style={{ position: 'absolute', bottom: '-5px', right: '-5px', background: 'transparent', border: '1px solid #ccc', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.55rem', color: '#555' }}>94</div>
+  </div>
+);
+
 export default function ResultsBento() {
   return (
-    <section id="results"><div className="container"><div className="card-elevated reveal">
-      <div className="section-header-row"><h2 className="section-title">Results.</h2><div className="divider"></div><p className="section-subtitle">Websites optimized for real results.</p></div>
-      <div className="bento-grid">
-        {cells.map((c, i) => <div key={i} className={`bento-cell ${c.span ? 'span-2' : ''}`}><div className="bento-icon">{c.icon}</div>{c.big && <div className="bento-big">{c.big}</div>}<h4>{c.title}</h4><p>{c.desc}</p></div>)}
-        <div className="bento-cell"><div className="bento-icon">🏷️</div><h4>Our Stack</h4><div className="bento-tags">{tags.map(t => <span key={t} className="bento-tag">{t}</span>)}</div></div>
+    <section id="results">
+      <div className="container">
+        <div className="card-elevated reveal" style={{ padding: '60px' }}>
+          <div className="section-header-row" style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '24px', marginBottom: '40px', display: 'flex', alignItems: 'baseline', gap: '24px', flexWrap: 'wrap' }}>
+            <h2 className="section-title" style={{ fontSize: '4.5rem', fontWeight: 500, letterSpacing: '-0.04em' }}>Results.</h2>
+            <div className="divider" style={{ width: '1px', height: '40px', background: '#e5e5e5' }}></div>
+            <p className="section-subtitle" style={{ fontSize: '0.95rem', color: '#737373' }}>Websites optimized for real results.</p>
+          </div>
+
+          <div className="results-grid-new">
+            
+            {/* Top Row: Chart (Span 2) + Metrics Text (Span 2) */}
+            <div className="results-cell-span-2" style={{ background: '#f9f9f9', borderRadius: '24px', padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+              <div style={{ display: 'flex', gap: '8px', marginBottom: 'auto' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }}></div>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#6ee7b7' }}></div>
+              </div>
+              <ChartSVG />
+            </div>
+
+            <div className="results-cell-span-2" style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <h3 style={{ fontSize: '2rem', fontWeight: 500, lineHeight: 1.2, marginBottom: '32px' }}>Websites built for real business results</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+                <div><h4 style={{ fontSize: '0.9rem', marginBottom: '4px' }}>OnPage SEO</h4><p style={{ fontSize: '0.8rem', color: '#737373' }}>Ready to be found on Google.</p></div>
+                <div><h4 style={{ fontSize: '0.9rem', marginBottom: '4px' }}>Tracking & Analytics</h4><p style={{ fontSize: '0.8rem', color: '#737373' }}>Track user statistics, marketing cookies and more.</p></div>
+                <div><h4 style={{ fontSize: '0.9rem', marginBottom: '4px' }}>100% Responsive</h4><p style={{ fontSize: '0.8rem', color: '#737373' }}>Optimized for desktop, tablet, mobile and everything in between.</p></div>
+                <div><h4 style={{ fontSize: '0.9rem', marginBottom: '4px' }}>ROI-First</h4><p style={{ fontSize: '0.8rem', color: '#737373' }}>So you get the most out of your ad budget.</p></div>
+              </div>
+            </div>
+
+            {/* Middle Row: Full Service (Span 2) + Lightning Fast (Span 2) */}
+            <div className="results-cell-span-2" style={{ background: '#f9f9f9', borderRadius: '24px', padding: '32px', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center' }}>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '8px' }}>Full-Service A to Z</h4>
+                <p style={{ fontSize: '0.85rem', color: '#737373', maxWidth: '200px' }}>Benefit from top-notch service and comfort from start to finish.</p>
+              </div>
+              <PillsGroup />
+            </div>
+
+            <div className="results-cell-span-2" style={{ background: '#f9f9f9', borderRadius: '24px', padding: '32px', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center' }}>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '8px' }}>Lightning-Fast Load Times</h4>
+                <p style={{ fontSize: '0.85rem', color: '#737373' }}>Because nobody likes waiting.</p>
+              </div>
+              <PageSpeed />
+            </div>
+
+            {/* Bottom Row: 4 Single Cells */}
+            <div style={{ background: '#ffffff', borderRadius: '24px', padding: '32px 24px', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '16px' }}>💻</div>
+              <h5 style={{ fontSize: '0.9rem', fontStyle: 'italic', fontWeight: 600 }}>Perfectly Integrated</h5>
+            </div>
+            
+            <div style={{ background: '#ffffff', borderRadius: '24px', padding: '32px 24px', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ marginBottom: '16px', color: '#10b981' }}><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="12" cy="12" r="3"/><path d="M12 8v-1"/><path d="M12 17v-1"/><path d="M8 12h-1"/><path d="M17 12h-1"/></svg></div>
+              <h5 style={{ fontSize: '0.9rem', fontStyle: 'italic', fontWeight: 600 }}>Built to Scale</h5>
+            </div>
+
+            <div style={{ background: '#ffffff', borderRadius: '24px', padding: '32px 24px', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ color: '#10b981', border: '1px solid #bbf7d0', padding: '8px 16px', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 600, marginBottom: '16px' }}>Mon - Fri: 10 -</div>
+              <h5 style={{ fontSize: '0.9rem', fontStyle: 'italic', fontWeight: 600 }}>Easy to Edit</h5>
+            </div>
+
+            <div style={{ background: '#ffffff', borderRadius: '24px', padding: '32px 24px', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ border: '1px solid #e5e5e5', padding: '12px', borderRadius: '12px', marginBottom: '16px', position: 'relative' }}>
+                <div style={{ fontSize: '0.5rem', color: '#ccc', letterSpacing: '2px', marginBottom: '4px' }}>★★★★★★★</div>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>GDPR</div>
+                <div style={{ fontSize: '0.45rem', color: '#a3a3a3' }}>Compliant</div>
+                <div style={{ position: 'absolute', bottom: '-8px', right: '-8px', background: '#10b981', color: 'white', borderRadius: '50%', width: '16px', height: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+              <h5 style={{ fontSize: '0.9rem', fontStyle: 'italic', fontWeight: 600 }}>Secure & Compliant</h5>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div></div></section>
+    </section>
   );
 }
