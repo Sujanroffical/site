@@ -8,6 +8,7 @@ const questions = [
   { q: 'Are Echo Site websites SEO-optimized?', a: 'Absolutely. Every website includes on-page SEO, semantic HTML, meta tags, structured data, and fast loading times.' },
   { q: 'Do you offer in-person consultations?', a: 'Yes! We are based in Salem, Tamil Nadu and are happy to meet in person. We also work remotely across India.' },
   { q: 'Why not use a page builder like Wix or Squarespace?', a: 'Page builders are limited in performance, customization, and SEO. Our hand-coded websites load faster and rank higher.' },
+  { q: 'Do you offer n8n automations?', a: 'Yes! We specialize in workflow automation using n8n. From lead capture to CRM syncing and social media automation, we build custom solutions to save you hours of manual work.' },
 ];
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);

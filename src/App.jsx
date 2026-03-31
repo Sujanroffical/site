@@ -4,12 +4,11 @@ import Hero from './components/Hero';
 import TechLogos from './components/TechLogos';
 import Portfolio from './components/Portfolio';
 import Pricing from './components/Pricing';
-import CTABanner from './components/CTABanner';
-import Testimonials from './components/Testimonials';
 import ResultsBento from './components/ResultsBento';
 import FAQ from './components/FAQ';
 import About from './components/About';
 import Footer from './components/Footer';
+import CTABanner from './components/CTABanner';
 
 const WaIcon = () => (
   <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +42,6 @@ export default function App() {
         <Portfolio />
         <Pricing />
         <CTABanner />
-        <Testimonials />
         <ResultsBento />
         <FAQ />
         <About />
